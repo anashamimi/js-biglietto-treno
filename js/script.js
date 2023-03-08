@@ -24,30 +24,28 @@ var scontoOver65 = 0.40;
 
 let messaggio = `Secondo i dati inseriti (${chilometri}km e ${etaPasseggero} anni) Il prezzo del viaggio è : € `;
 
-if (chilometri && etaPasseggero && !isNaN(chilometri) && !isNaN(etaPasseggero) && etaPasseggero <= 100 && Number.isInteger(etaPasseggero)) {
+if (chilometri && etaPasseggero && !isNaN(chilometri) && !isNaN(etaPasseggero) && etaPasseggero <= 100 && Number.isInteger(+etaPasseggero)) {
+    
+    prezzoChilometro = prezzoChilometro * chilometri;
+    
     if (etaPasseggero < 18) {
 
-        prezzoChilometro = prezzoChilometro * chilometri;
         prezzoTotale = prezzoChilometro - (prezzoChilometro * scontoMinori);
-        prezzoTotale = prezzoTotale.toFixed(2);
-        messaggio += prezzoTotale;
-        console.log(prezzoTotale);
 
     } else if (etaPasseggero >= 65) {
 
-        prezzoChilometro = prezzoChilometro * chilometri;
+
         prezzoTotale = prezzoChilometro - (prezzoChilometro * scontoOver65);
-        prezzoTotale = prezzoTotale.toFixed(2);
-        messaggio += prezzoTotale;
-        console.log(prezzoTotale);
 
     } else {
 
-        prezzoChilometro = prezzoChilometro * chilometri;
-        prezzoTotale = prezzoChilometro.toFixed(2);
-        messaggio += prezzoTotale;
-        console.log(prezzoTotale);
+        prezzoTotale = prezzoChilometro;
+        
     }
+
+    prezzoTotale = prezzoTotale.toFixed(2);
+    messaggio += prezzoTotale;
+    console.log(prezzoTotale);
 } else {
 
     messaggio = "I dati inseriti non sono corretti!";
