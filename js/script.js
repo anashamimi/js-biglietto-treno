@@ -8,14 +8,41 @@ Questo richiederà un minimo di ricerca.*/
 
 // Variabile km da percorrere
 const chilometri = prompt('Inserire il numero di chilometri da percorrere');
+console.log(chilometri);
 
 // Variabile età del passeggero
 const etaPasseggero = prompt('Inseriee la età del passeggero');
+console.log(etaPasseggero);
 
-var prezzoTotale
+var prezzoTotale;
 
 var prezzoChilometro = 0.21;
 
 var scontoMinori = 0.20;
 
 var scontoOver65 = 0.40;
+
+
+if (chilometri && etaPasseggero && !isNaN(etaPasseggero) && etaPasseggero <= 100) {
+    if (etaPasseggero < 18) {
+
+        prezzoChilometro = prezzoChilometro * chilometri;
+        prezzoTotale = prezzoChilometro - (prezzoChilometro * scontoMinori);
+        console.log(prezzoTotale);
+
+    } else if (etaPasseggero >= 65) {
+
+        prezzoChilometro = prezzoChilometro * chilometri;
+        prezzoTotale = prezzoChilometro - (prezzoChilometro * scontoOver65);
+        console.log(prezzoTotale);
+
+    } else {
+
+        prezzoChilometro = prezzoChilometro * chilometri;
+        prezzoTotale = prezzoChilometro;
+        console.log(prezzoTotale);
+    }
+} else{
+
+    
+}
