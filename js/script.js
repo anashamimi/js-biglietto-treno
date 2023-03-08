@@ -24,7 +24,7 @@ var scontoOver65 = 0.40;
 
 let messaggio = `Secondo i dati inseriti (${chilometri}km e ${etaPasseggero} anni) Il prezzo del viaggio è : € `;
 
-if (chilometri && etaPasseggero && !isNaN(chilometri) && !isNaN(etaPasseggero) && etaPasseggero <= 100) {
+if (chilometri && etaPasseggero && !isNaN(chilometri) && !isNaN(etaPasseggero) && etaPasseggero <= 100 && Number.isInteger(etaPasseggero)) {
     if (etaPasseggero < 18) {
 
         prezzoChilometro = prezzoChilometro * chilometri;
