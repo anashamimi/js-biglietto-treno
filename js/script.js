@@ -22,7 +22,7 @@ var scontoMinori = 0.20;
 
 var scontoOver65 = 0.40;
 
-let messaggio = `Secondo i dati inseriti km(${chilometri}) e età(${etaPasseggero}) Il prezzo del viaggio è : `;
+let messaggio = `Secondo i dati inseriti (${chilometri}km e ${etaPasseggero} anni) Il prezzo del viaggio è : € `;
 
 if (chilometri && etaPasseggero && !isNaN(chilometri) && !isNaN(etaPasseggero) && etaPasseggero <= 100) {
     if (etaPasseggero < 18) {
@@ -53,5 +53,8 @@ if (chilometri && etaPasseggero && !isNaN(chilometri) && !isNaN(etaPasseggero) &
     messaggio = "I dati inseriti non sono corretti!";
     
 }
+
+
+document.getElementById('app').innerHTML += `<p>${messaggio}</p>`
 
 console.log(messaggio);
